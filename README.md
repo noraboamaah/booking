@@ -1,2 +1,2 @@
 # booking
-Booking App
+This is a very amazing booking application!
