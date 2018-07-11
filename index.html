@@ -21,10 +21,8 @@ html, body {
   min-width: 100%;
   width: 100%;
 }
-
   body{
     background-color: #e4e6e661;
-
   }
 </style>
 </head>
@@ -58,10 +56,9 @@ html, body {
              <h4 class="modal-title"> Make Your Reservation </h4>
                 <img src="logo.png" class="img-rounded" class="img-responsive" width="10%">
                   <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
+          </div>
         </div>  
-        
-        
+
         <!-- Modal body -->
         <div class="modal-body">
 
@@ -69,29 +66,52 @@ html, body {
   <div class="container" class="justify-content-start">
     <form action="/action_page.php" >
       <div class="form-group">
-        <label for="name" id="usr"> Who is making this Reservation? </label>
-          <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder=" Enter Name" type="text" required style="width: 30vw">
-          </div>
-          
-        <label for="Purpose"> What is the Purpose? </label> 
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Enter Title" type="text" required style="width: 30vw">
-        </div> 
+            <label for="name" id="usr"> Who is making this Reservation? </label>
+            <input class="form-control" id="name" name="name" placeholder=" Enter Name" type="text" required>
       </div>
-     
-
-
-
+      <div class="form-group"> 
+            <label for="Purpose"> What is the Purpose? </label> 
+            <input class="form-control" id="name" name="name" placeholder="Enter Title" type="text" required>
+      </div> 
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="Duration"> Duration </label> 
+          <select name="start-time"  class="form-control"> 
+             <option disabled selected> Select Start Time </option>
+             <option value="8:00">8:00</option> <option value="8:30">8:30</option>
+             <option value="9:00">9:00</option>   <option value="9:30">9:30</option>
+             <option value="10:00">10:00</option> <option value="10:30">10:30</option>
+             <option value="11:00">11:00</option> <option value="11:30">11:30</option>
+             <option value="12:00">12:00</option> <option value="12:30">12:30</option>
+             <option value="13:00">13:00</option> <option value="13:30">13:30</option>  
+             <option value="14:00">14:00</option> <option value="14:30">14:30</option>
+             <option value="15:00">15:00</option> <option value="15:30">15:30</option>  
+             <option value="16:00">16:00</option> <option value="16:30">16:30</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="To">To</label>
+              <select name="closing-time" class="form-control"> 
+                <option disabled selected> Select Closing Time</option>
+                <option value="8:30">8:30</option>
+                <option value="9:00">9:00</option>   <option value="9:30">9:30</option>
+                <option value="10:00">10:00</option>  <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option> <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>  <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>  <option value="13:30">13:30</option>  
+                <option value="14:00">14:00</option> <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>  <option value="15:30">15:30</option>  
+                <option value="16:00">16:00</option> <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+            </select> 
+        </div>
+      </div>
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-info" data-dismiss="modal">Submit Reservation</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal">Submit Reservation</button>
         </div>
-        
-      </div>
-    
-  
+  </div>
 
 <script>
 $(document).ready(function(){
@@ -101,7 +121,5 @@ $(document).ready(function(){
 });
 </script>
 
-
  </body>
-
 </html>
