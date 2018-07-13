@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Assignment</title>
+  <title> QH Booking</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
+  <link data-n-head="true" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style type="text/css">
 html, body {
@@ -20,30 +17,72 @@ html, body {
   min-height: 100%;
   min-width: 100%;
   width: 100%;
+  border-bottom-left-radius:4px; border-bottom-right-radius:4px;
 }
+
+.fixedButton{
+  position: fixed; 
+  bottom: 0; 
+  right: 0;
+ 
+}
+
+
+/*Styling containers that display bookings on splash screen*/
+.mb-1 {text-transform: uppercase;}
+
+/*Styling for the submit button to add some margin to top*/
+button[type=submit] {margin:1em 0;}
+
   body{
-    background-color: #e4e6e661;
+    background-color: #f0f0f0;
+
   }
 </style>
 </head>
 
-
 <body>
 
-
 <!-- container conaining the list of bookings -->    
-<div class="container h-100">
+<div class="container">
     <div class="row h-100 justify-content-center  align-items-center ">
-        <div class="col-6 mx-auto">
-            <div class="container" style="width: 50vw; height: 40vw; background-color: white;">
-                <div class="col-sm-12 form-group">
-                    <button class="btn btn-info" type="submit" id="myBtn">Reserve</button>
-                </div>
+        <div class="col-12 col-sm-6 mx-auto">
+            <div class="container" style="background-color: white;">
+                <!-- List goes here  -->
+                  <div class="list-group"><h2 class="text-center text-uppercase">Bookings for the Day</h2>
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+    <div class="d-flex w-100 justify-content-between">
+      <h6 class="mb-1">Meeting: Company Policies</h6>
+    </div>
+    <p class="mb-1">8:00am - 10:00am</p>
+    <small>Sena Amevor</small>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h6 class="mb-1">Developers Forum</h6>
+    </div>
+    <p class="mb-1">13:00pm - 14:00pm</p>
+    <small class="text-muted">Patrick Baidoo</small>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h6 class="mb-1">HR Interview Sessions</h6>
+    </div>
+    <p class="mb-1">14:00pm - 17:00pm</p>
+    <small class="text-muted">Melissa Kumah</small>
+  </a>
+</div>
+
+    
             </div>
         </div>
     </div>
-</div>
 
+    <div class="col-sm-12 row justify-content-end" class="fixedButton" >
+      <button class="btn btn-info " style="border-radius: 50%; font-size: 1em;" type="submit" id="myBtn">  <i class="fa fa-plus"  csolor:#17a2b8;" aria-hidden="true" ></i></button>
+    </div>
+</div>
+</div>
 
   <!-- The Modal -->
   <div class="modal fade" id="myModal">
@@ -66,16 +105,16 @@ html, body {
   <div class="container" class="justify-content-start">
     <form action="/action_page.php" >
       <div class="form-group">
-            <label for="name" id="usr"> Who is making this Reservation? </label>
+            <label for="name" id="usr"> What shall we call you? </label>
             <input class="form-control" id="name" name="name" placeholder=" Enter Name" type="text" required>
       </div>
       <div class="form-group"> 
-            <label for="Purpose"> What is the Purpose? </label> 
-            <input class="form-control" id="name" name="name" placeholder="Enter Title" type="text" required>
+            <label for="Purpose"> Please tell us why you need the room? </label> 
+            <input class="form-control" id="name" name="name" placeholder="Enter Purpose" type="text" required>
       </div> 
+      <label style="vertical-align: middle;" class="form-group" for="Duration"> Duration </label>
       <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="Duration"> Duration </label> 
+        <div class="form-group col-md-5.9">
           <select name="start-time"  class="form-control"> 
              <option disabled selected> Select Start Time </option>
              <option value="8:00">8:00</option> <option value="8:30">8:30</option>
@@ -89,8 +128,9 @@ html, body {
              <option value="16:00">16:00</option> <option value="16:30">16:30</option>
           </select>
         </div>
-        <div class="form-group col-md-6">
-            <label for="To">To</label>
+
+        <div class="form-group col-md-0.2"><div class="form-control">-</div></div>
+        <div class="form-group col-md-5.9">
               <select name="closing-time" class="form-control"> 
                 <option disabled selected> Select Closing Time</option>
                 <option value="8:30">8:30</option>
@@ -107,12 +147,13 @@ html, body {
         </div>
       </div>
 
-        <!-- Modal footer -->
-        <div class="modal-footer">
-            <button type="button" class="btn btn-info" data-dismiss="modal">Submit Reservation</button>
-        </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+          <button type="submit" class="btn btn-info btn-default apply"><i aria-hidden="true" class="fa fa-plane"></i> Submit</button>
+      </div>
   </div>
 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
     $("#myBtn").click(function(){
@@ -120,6 +161,7 @@ $(document).ready(function(){
     });
 });
 </script>
-
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+ <script src="https://unpkg.com/unpkg"></script>
  </body>
 </html>
